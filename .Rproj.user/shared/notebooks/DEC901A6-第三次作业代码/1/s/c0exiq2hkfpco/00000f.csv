@@ -1,0 +1,7 @@
+"0","tv_scoring = as.numeric(tv_data$得分) #将非数值变量转换为NA"
+"2","警告: 强制改变过程中产生了NA"
+"0","tv_sc_mean = mean(tv_scoring,na.rm = T) #使用na.rm参数来计算忽略NA之后的mean"
+"0","cat(""不考虑缺失数据的电视剧平均得分为:"", tv_sc_mean)"
+"1","不考虑缺失数据的电视剧平均得分为:"
+"1"," "
+"1","7.592556"

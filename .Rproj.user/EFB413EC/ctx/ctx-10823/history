@@ -1,0 +1,512 @@
+})
+# 找出平均热度最高的游戏类型
+最高热度类型 = 平均热度[which.max(avheat$V1), ]
+# 查看结果
+print(平均热度)
+print(最高热度类型)
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {
+mean(x$热度数值, na.rm = TRUE)
+})
+# 找出平均热度最高的游戏类型
+最高热度类型 = 平均热度[which.max(avheat$V1), ]
+# 查看结果
+print(avheat)
+print(最高热度类型)
+sum(is.na(mbgame$类别))  # 检查类别中缺失值数量
+sum(is.na(mbgame$热度))   # 检查热度中缺失值数量
+print(mbgame$热度数值)
+is.na(mbgame$热度)
+sum(is.na(mbgame$热度))
+str(mbgame)  # 查看 mbgame 的结构
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {
+mean(x$热度数值, na.rm = TRUE)
+})
+# 找出平均热度最高的游戏类型
+最高热度类型 = avheat[which.max(avheat$V1), ]
+# 查看结果
+print(avheat)
+print(最高热度类型)
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {
+mean(x$热度数值, na.rm = TRUE)
+})
+# 找出平均热度最高的游戏类型
+最高热度类型 = avheat[which.max(avheat$V1), ]
+# 查看结果
+print(avheat)
+print(最高热度类型)
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {
+mean(x$热度数值)
+})
+# 找出平均热度最高的游戏类型
+最高热度类型 = avheat[which.max(avheat$V1), ]
+# 查看结果
+print(avheat)
+print(最高热度类型)
+which.max(avheat$V1)
+which.max(avheat$V1,)
+avheat[12,]
+avheat[12]
+avheat[12,V2]
+avheat[12,V1]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+highestheat = avheat[which.max(avheat$V1), ]
+cat("各游戏类型热度均值为:", tv_sc_mean,"\n")
+print(avheat)
+print(最高热度类型)
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+highestheat = avheat[which.max(avheat$V1), ]
+cat("各游戏类型热度均值为:", tv_sc_mean,"\n")
+print(avheat)
+print(highestheat)
+avheat
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+cat("各游戏类型热度均值为:", tv_sc_mean,"\n")
+print(avheat)
+print(highestheat)
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+#cat("各游戏类型热度均值为:", tv_sc_mean,"\n")
+print(avheat)
+print(highestheat)
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+cat("各游戏类型热度均值为:", avheat_withunit,"\n")
+avheat_withunit
+mean(mbgame$热度数值)
+head(mbgame$热度数值)
+as.numeric(mbgame$热度数值)
+mean(mbgame$热度数值)
+is.numeric(mbgame$热度数值)
+mean(mbgame$热度数值)
+sum(is.na(mbgame$热度数值))
+# 找到导致 NA 的行
+na_index <- which(is.na(mbgame$热度数值))
+print(mbgame[na_index, ])
+mbgame$热度[1141,]
+mbgame[1141,]
+mbgame[1140,]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+cat("各游戏类型热度均值为:", highestheat,"\n")
+length(mbgame)
+hea(mbgame)
+head(mbgame)
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1)]
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+cat("各游戏类型热度均值为:", highestheat,"\n")
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+#cat("各游戏类型热度均值为:", highestheat,"\n")
+print(avheat)
+print(highestheat)
+View(avheat)
+View(avheat)
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+cat("各游戏类型热度均值为:", avheat_withunit,"\n")
+highestheat
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+print(avheat_withunit,"\n")
+cat("最高平均热度的游戏类型为:", highestheat,"\n")
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+print(avheat_withunit,"\n")
+cat("最高平均热度的游戏类型为:", highestheat[1,1],"\n")
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+print(avheat_withunit,"\n")
+cat("最高平均热度的游戏类型为:", highestheat[1,1],"热度为",highestheat[1,2], "\n")
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+print(avheat_withunit,"\n")
+cat("最高平均热度的游戏类型为:", highestheat[1,1],"平均热度为",highestheat[1,2], "\n")
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+print(avheat_withunit,"\n")
+cat("最高平均热度的游戏类型为:",highestheat[1,1],"平均热度为",highestheat[1,2], "\n")
+knitr::opts_chunk$set(prompt = TRUE, results='hold',comment="Result:",warning=T)
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+print(avheat_withunit,"\n")
+cat("最高平均热度的游戏类型为:",highestheat[1,1],"平均热度为",highestheat[1,2], "\n")
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+print(avheat_withunit,"\n")
+cat("最高平均热度的游戏类型为:",highestheat[1,1],"平均热度为",highestheat[1,2], "\n")
+install.packages("dplyr")
+knitr::opts_chunk$set(prompt = TRUE, results='hold',comment="##",warning=F)
+library(dplyr)
+# 假设mbgame中有一个名为评分的列
+# 计算各游戏类型的统计量
+game_stats <- mbgame %>%
+group_by(类别) %>%
+summarize(
+平均评分 = mean(评分, na.rm = TRUE),
+最高评分 = max(评分, na.rm = TRUE),
+最低评分 = min(评分, na.rm = TRUE),
+评分标准差 = sd(评分, na.rm = TRUE)
+)
+# 打印结果
+print(game_stats)
+library(dplyr)
+# 假设mbgame中有一个名为评分的列
+# 计算各游戏类型的统计量
+game_stats <- mbgame %>%
+group_by(类别) %>%
+summarize(
+平均评分 = mean(评分, na.rm = TRUE),
+最高评分 = max(评分, na.rm = TRUE),
+最低评分 = min(评分, na.rm = TRUE),
+评分标准差 = sd(评分, na.rm = TRUE)
+)
+# 打印结果
+print(game_stats)
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+print(avheat_withunit)
+cat("最高平均热度的游戏类型为:",highestheat[1,1],"平均热度为",highestheat[1,2], "\n")
+game_stats = summarize(
+group_by(mbgame, 类别),
+平均评分 = mean(评分, na.rm = TRUE),
+最高评分 = max(评分, na.rm = TRUE),
+最低评分 = min(评分, na.rm = TRUE),
+评分标准差 = sd(评分, na.rm = TRUE)
+)
+game_stats = summarize(
+group_by(mbgame, 类别),
+平均评分 = mean(评分, na.rm = TRUE),
+最高评分 = max(评分, na.rm = TRUE),
+最低评分 = min(评分, na.rm = TRUE),
+评分标准差 = sd(评分, na.rm = TRUE)
+)
+print(game_stats)
+library(dplyr)
+# 假设mbgame中有一个名为评分的列
+# 计算各游戏类型的统计量
+game_stats = mbgame %>%
+group_by(类别) %>%
+summarize(
+平均评分 = mean(评分, na.rm = TRUE),
+最高评分 = max(评分, na.rm = TRUE),
+最低评分 = min(评分, na.rm = TRUE),
+评分标准差 = sd(评分, na.rm = TRUE)
+)
+# 打印结果
+print(game_stats)
+head(mbgame)
+library(dplyr)
+game_stats = mbgame %>%
+group_by(类别) %>%
+summarize(
+平均评分 = mean(评分),
+最高评分 = max(评分),
+最低评分 = min(评分),
+评分标准差 = sd(评分)
+)
+# 打印结果
+print(game_stats)
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+library(plyr)
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+print(avheat_withunit)
+cat("最高平均热度的游戏类型为:",highestheat[1,1],"平均热度为",highestheat[1,2], "\n")
+library(dplyr)
+game_stats = mbgame %>%
+group_by(类别) %>%
+summarize(
+平均评分 = mean(评分),
+最高评分 = max(评分),
+最低评分 = min(评分),
+评分标准差 = sd(评分)
+)
+# 打印结果
+print(game_stats)
+library(dplyr)
+game_stats = mbgame %>%
+group_by(类别) %>%
+summarize(
+平均评分 = mean(评分, na.rm = TRUE),
+最高评分 = max(评分, na.rm = TRUE),
+最低评分 = min(评分, na.rm = TRUE),
+评分标准差 = sd(评分, na.rm = TRUE)
+)
+# 打印结果
+print(game_stats)
+sum(is.na(mbgame$评分))
+sum(is.na(mbgame$评分))
+install.packages("ggplot23")
+install.packages("ggplot2")
+install.packages("tidyr")
+# 首先加载 ggplot2 包
+library(ggplot2)
+# 将游戏统计数据转换为长格式，以便于可视化
+library(tidyr)
+game_stats_long <- game_stats %>%
+pivot_longer(cols = c(平均评分, 最高评分, 最低评分),
+names_to = "评分类型",
+values_to = "评分")
+# 绘制条形图
+ggplot(game_stats_long, aes(x = 类别, y = 评分, fill = 评分类型)) +
+geom_bar(stat = "identity", position = "dodge") +
+labs(title = "各游戏类型评分统计",
+x = "游戏类型",
+y = "评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+library(ggplot2)
+# 绘制平均评分
+ggplot(game_stats, aes(x = 类别, y = 平均评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型平均评分",
+x = "游戏类型",
+y = "平均评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最高评分
+ggplot(game_stats, aes(x = 类别, y = 最高评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最高评分",
+x = "游戏类型",
+y = "最高评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最低评分
+ggplot(game_stats, aes(x = 类别, y = 最低评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最低评分",
+x = "游戏类型",
+y = "最低评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+library(ggplot2)
+# 绘制平均评分
+ggplot(game_stats, aes(x = 类别, y = 平均评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型平均评分",
+x = "游戏类型",
+y = "平均评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最高评分
+ggplot(game_stats, aes(x = 类别, y = 最高评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最高评分",
+x = "游戏类型",
+y = "最高评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最低评分
+ggplot(game_stats, aes(x = 类别, y = 最低评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最低评分", +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+library(ggplot2)
+# 绘制平均评分
+ggplot(game_stats, aes(x = 类别, y = 平均评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型平均评分",
+x = "游戏类型",
+y = "平均评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最高评分
+ggplot(game_stats, aes(x = 类别, y = 最高评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最高评分",
+x = "游戏类型",
+y = "最高评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最低评分
+ggplot(game_stats, aes(x = 类别, y = 最低评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最低评分",
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+library(ggplot2)
+# 绘制平均评分
+ggplot(game_stats, aes(x = 类别, y = 平均评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型平均评分",
+x = "游戏类型",
+y = "平均评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最高评分
+ggplot(game_stats, aes(x = 类别, y = 最高评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最高评分",
+x = "游戏类型",
+y = "最高评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最低评分
+ggplot(game_stats, aes(x = 类别, y = 最低评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最低评分"+
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+library(ggplot2)
+# 绘制平均评分
+ggplot(game_stats, aes(x = 类别, y = 平均评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型平均评分",
+x = "游戏类型",
+y = "平均评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最高评分
+ggplot(game_stats, aes(x = 类别, y = 最高评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最高评分",
+x = "游戏类型",
+y = "最高评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 绘制最低评分
+ggplot(game_stats, aes(x = 类别, y = 最低评分, fill = 类别)) +
+geom_bar(stat = "identity") +
+labs(title = "各游戏类型最低评分")+
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# 首先加载 ggplot2 包
+library(ggplot2)
+# 将游戏统计数据转换为长格式，以便于可视化
+library(tidyr)
+game_stats_long <- game_stats %>%
+pivot_longer(cols = c(平均评分, 最高评分, 最低评分),
+names_to = "评分类型",
+values_to = "评分")
+# 绘制条形图
+ggplot(game_stats_long, aes(x = 类别, y = 评分, fill = 评分类型)) +
+geom_bar(stat = "identity", position = "dodge") +
+labs(title = "各游戏类型评分统计",
+x = "游戏类型",
+y = "评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+library(tidyr)
+df <- data.frame(
+id = 1:3,
+year1 = c(5, 6, 7),
+year2 = c(8, 9, 10)
+)
+df_long <- pivot_longer(df, cols = c(year1, year2), names_to = "year", values_to = "value")
+library(tidyr)
+df <- data.frame(
+id = 1:3,
+year1 = c(5, 6, 7),
+year2 = c(8, 9, 10)
+)
+df_long <- pivot_longer(df, cols = c(year1, year2), names_to = "year", values_to = "value")
+df_long
+# 首先加载 ggplot2 包
+library(ggplot2)
+# 将游戏统计数据转换为长格式，以便于可视化
+library(tidyr)
+game_stats_long <- game_stats %>%
+pivot_longer(cols = c(平均评分, 最高评分, 最低评分),
+names_to = "评分类型",
+values_to = "评分")
+# 绘制条形图
+ggplot(game_stats_long, aes(x = 类别, y = 评分, fill = 评分类型)) +
+geom_bar(stat = "identity", position = "dodge") +
+labs(title = "各游戏类型评分统计",
+x = "游戏类型",
+y = "评分") +
+theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+install.packages("rmarkdown")
+install.packages("tinytex")
+tinytex::install_tinytex() # 安装 TinyTeX

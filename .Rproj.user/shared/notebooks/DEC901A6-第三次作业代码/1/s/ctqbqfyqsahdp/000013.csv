@@ -1,0 +1,10 @@
+"0",""
+"0","library(ggplot2)"
+"0",""
+"0","library(tidyr)"
+"0","game_stats_long = game_stats %>%"
+"0","  pivot_longer(cols = c(平均评分, 最高评分, 最低评分),"
+"2","错误: 意外的符号 于
+""game_stats_long = game_stats %>%
+  pivot_longer(cols = c(\u5e73""
+"

@@ -1,0 +1,2 @@
+"0","mbgame = read.csv(""安卓手机游戏.csv"", fileEncoding = ""GBK"")"
+"0","head(mbgame)"

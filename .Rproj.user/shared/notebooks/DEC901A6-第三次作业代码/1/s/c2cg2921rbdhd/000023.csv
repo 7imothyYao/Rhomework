@@ -1,0 +1,4 @@
+"0","tv_data = read.csv(""电视剧播量.csv"", fileEncoding = ""GBK"")"
+"0","head(tv_data)"
+"2","错误于gzfile(file, ""wb""): 无法打开链结
+"

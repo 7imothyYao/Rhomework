@@ -1,0 +1,8 @@
+"0","game_stats = summarize("
+"0","  group_by(mbgame, 类别),"
+"0","  平均评分 = mean(评分, na.rm = TRUE),"
+"0","  最高评分 = max(评分, na.rm = TRUE),"
+"0","  最低评分 = min(评分, na.rm = TRUE),"
+"0","  评分标准差 = sd(评分, na.rm = TRUE)"
+"0",")"
+"0","print(game_stats)"

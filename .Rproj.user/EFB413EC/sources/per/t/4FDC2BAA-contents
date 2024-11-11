@@ -1,0 +1,174 @@
+---
+title: "TASK3： 数据操作-综合分析"
+author: "姚震林 202411422339"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+<style>
+body{
+  background-color:#F3F9FF
+}
+</style>
+
+```{r setup, include=F}
+knitr::opts_chunk$set(prompt = TRUE, results='hold',comment="##",warning=F, message=F)
+```
+
+
+## 1. 
+
+对矩阵进行如下操作：
+
+**a**. 在 `R` 中生成矩阵$A$： $$A = \begin{bmatrix}
+1 & 2 & 3 \\
+4 & 2 & 1 \\
+2 & 3 & 0
+\end{bmatrix}$$
+
+
+```{r}
+A_entries = c(1,2,3,4,2,1,2,3,0)
+A = matrix(A_entries, nrow = 3, byrow = T)
+print(A)
+```
+
+
+**b**. 计算矩阵$A$的转置矩阵$B$, 以及逆矩阵$C$
+
+```{r}
+B = t(A)
+C = solve(A)
+cat("转置矩阵 B:\n")
+print(B)
+cat("逆矩阵 C:\n")
+print(C)
+```
+**c**. 求矩阵$A$和矩阵$B$的乘积
+```{r}
+prod = A %*% B
+print(prod)
+```
+## 2.
+
+使用电视剧网播量数据集，该数据集收集了 4266 条电视剧的信息。请完成以下任务。
+
+**a**. 获取数据集，查看数据概况；
+
+```{r}
+tv_data = read.csv("电视剧播量.csv", fileEncoding = "GBK")
+head(tv_data)
+summary(tv_data)
+```
+**b**. 删除数据集中剧名缺失的值
+
+```{r}
+missing_count = sum(is.na(tv_data$剧名) | tv_data$剧名 == "")  #检查剧名中有几个缺失值NA or 为空的
+cat("剧名缺失或为空的行数是:", missing_count,"\n")
+
+tv_data_clean = tv_data[!is.na(tv_data$剧名), ] #执行删除命令anyway
+summary(tv_data_clean)
+```
+
+**c**. 不考虑缺失数据影响，计算电视剧的平均得分。
+
+```{r}
+mean_score = mean(tv_data$得分, na.rm = TRUE) #忽略缺失值的情况下计算样本均值
+cat("不考虑缺失数据的电视剧平均得分为:", mean_score,"\n")
+```
+很明显，这里的变量 `tv_data$得分`中出现了非 `numeric`的变量，
+
+
+```{r}
+tv_scoring = as.numeric(tv_data$得分) #将非数值变量转换为NA
+tv_sc_mean = mean(tv_scoring,na.rm = T) #使用na.rm参数来计算忽略NA之后的mean
+cat("不考虑缺失数据的电视剧平均得分为:", tv_sc_mean,"\n")
+```
+
+## 3.
+
+**a**. 获取数据集，查看数据概况。
+```{r}
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")
+head(mbgame)
+summary(mbgame)
+```
+**b**. 提取热度中的数值部分，计算各游戏类型的热度均值，找出平均热度最高的游戏类型。
+
+经debugging，检查到本数据 `安卓手机游戏.csv` 的最后一行为`,,,,,,,,,,,`, 数据分析时忽略最后一行
+
+```{r}
+mbgame = read.csv("安卓手机游戏.csv", fileEncoding = "GBK")[1:(nrow(mbgame)-1),]
+
+library(plyr)
+
+mbgame$热度数值 = as.numeric(gsub("[^0-9]", "", mbgame$热度)) #将°C替换为空，然后转换为数值类型
+avheat = ddply(mbgame, .(类别), function(x) {mean(x$热度数值)})
+avheat_withunit = data.frame(类别 = avheat$类别,
+                             平均热度 = paste(avheat$V1,"°C"))
+highestheat = avheat_withunit[which.max(avheat$V1), ]
+
+
+print(avheat_withunit)
+cat("\n","最高平均热度的游戏类型为:",highestheat[1,1],"平均热度为",highestheat[1,2], "\n")
+```
+
+**c**. 计算各游戏类型的平均评分、最高评分、最低评分、评分标准差，并作简要分析。
+
+
+```{r}
+sum(is.na(mbgame$评分))
+```
+
+经检查，`评分` 变量中有空值
+```{r}
+library(dplyr)
+
+game_stats = mbgame %>%
+  group_by(类别) %>%
+  summarize(
+    平均评分 = mean(评分, na.rm = TRUE),
+    最高评分 = max(评分, na.rm = TRUE),
+    最低评分 = min(评分, na.rm = TRUE),
+    评分标准差 = sd(评分, na.rm = TRUE)
+  )
+
+print(game_stats)
+```
+
+```{r}
+game_stats = summarize(
+  group_by(mbgame, 类别),
+  平均评分 = mean(评分, na.rm = TRUE),
+  最高评分 = max(评分, na.rm = TRUE),
+  最低评分 = min(评分, na.rm = TRUE),
+  评分标准差 = sd(评分, na.rm = TRUE)
+)
+print(game_stats)
+```
+
+```{r}
+
+library(ggplot2)
+
+library(tidyr)
+game_stats_long = game_stats %>%
+  pivot_longer(cols = c(平均评分, 最高评分, 最低评分),
+               names_to = "评分类型",
+               values_to = "评分")
+
+ggplot(game_stats_long, aes(x = 类别, y = 评分, fill = 评分类型)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "各游戏类型评分统计",
+       x = "游戏类型",
+       y = "评分") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+
+由结果可知，`游戏工具`这一类游戏，平均分，最高分，最低分都是最低的，与此同时波动还大；此外其他类型的游戏之间差距不是太大
+
